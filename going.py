@@ -117,12 +117,10 @@ while True:                     # İlk while
     t2.start()
     th_arama = threading.Thread(target= arama(p1[i1]))
     th_arama.start()
-    bSnake = blacksnake()
-    bs = threading.Thread(target=bSnake.director(direction))
-    bs.start()
-    bSnake.director.measure()
-    
-    print (direction) 
+    ourDirector = blackSnake.Director()
+    directorThread = threading.Thread(target=ourDirector.measure,args=())
+    directorThread.start()
+    print (ourDirector.direction) 
     i1 = i1 + 1
     lat = vehicle.location.global_relative_frame.lat
     lon = vehicle.location.global_relative_frame.lon   #O an ki konum
