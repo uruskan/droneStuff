@@ -5,9 +5,12 @@ from picamera import PiCamera
 from picamera.array import PiRGBArray
 import math
 import time
-class director():
-    def __init__(self, direction):
-        self.direction = direction
+class Director:
+    
+    direction = ""
+    
+    def __init__(self):
+        pass    
   
 
     def ironmaiden(x, y, w, h, frame, t, color, a):
@@ -21,18 +24,18 @@ class director():
         
     def moving(ax, ay):
         if ax > 240:
-            self.direction = "right"
+            direction = "right"
             print("saga git")
         elif ax < 240:
-            self.direction = "left"
+            direction = "left"
             print("sola git")
         if ay > 160:
-            self.direction = "back"
+            direction = "back"
             print("geri git")
         elif ay < 160:
-            self.direction = "forward"
+            direction = "forward"
             print("ileri git")
-    def measure():        
+    def measure(self):        
         camera = PiCamera()
         camera.resolution=(480,320)
         camera.framerate=32
@@ -71,6 +74,8 @@ class director():
             rawCapture.truncate(0)
             if cv2.waitKey(1)& 0xFF ==ord('q'):
                 break
+            
+    
         
     
 
